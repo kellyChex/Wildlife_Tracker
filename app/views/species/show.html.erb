@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @species.name %>
+</p>
+
+<form action="/species" method="get">
+  <label for="sightings_date">Date</label>
+  <input id="sightings_date" name="sightings[date]" type="text">
+  <label for="sightings_longitude">Longitude</label>
+  <input id="sightings_longitude" name="sightings[longitude]" type="text">
+  <label for="sightings_latitude">Longitude</label>
+  <input id="sightings_latitude" name="sightings[latitude]" type="text">
+  <button>Run report</button>
+</form>
+
+<ul>
+  <strong>Sightings</strong>
+  <% @species.sightings.each do |sighting| %>
+  <li><%= sighting.date %></li>
+<% end %>
+
+</ul>
+
+
+<%= link_to 'Edit', edit_species_path(@species) %> |
+<%= link_to 'Back', species_index_path %>
